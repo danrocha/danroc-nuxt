@@ -3,10 +3,10 @@
     <svg-sprite />
     <header class="mb-12">
       <div class="flex flex-wrap items-center justify-between">
-        <h1 class="font-mono text-4xl text-pink-600">
+        <h1 class="font-mono text-5xl text-pink-600">
           danroc.dev
         </h1>
-        <ul class="flex space-x-2 text-gray-800">
+        <ul class="flex space-x-2 text-lg text-gray-800">
           <li>
             <a href="//twitter.com/danrocc" target="_blank" rel="nofollow"
               ><svg-icon icon="twitter"
