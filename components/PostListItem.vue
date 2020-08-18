@@ -11,8 +11,8 @@
       </h3>
       <p class="mb-2" v-html="post.description" />
 
-      <post-meta :post="post" />
-      <post-tags :post="post" />
+      <post-meta :date="post.date" />
+      <post-tags :tags="post.tags" />
     </div>
   </article>
 </template>
