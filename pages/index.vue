@@ -1,7 +1,9 @@
 <template>
   <div class="container">
     <div class="home">
-      <section class="mb-8 content sm:ml-12 sm:mb-12 md:w-1/2 lg:m-0 lg:w-full">
+      <section
+        class="mb-8 prose content sm:ml-12 sm:mb-12 md:w-1/2 lg:m-0 lg:w-full"
+      >
         <p>
           I'm <strong>Daniel da Rocha</strong>, a Brazilian architect and web
           developer.
@@ -36,10 +38,6 @@
             </dt>
             <dd>🇩🇪Berlin</dd>
           </div>
-          <!-- <div>
-            <dt class="text-xs text-gray-500 uppercase trackign wide">Currently in</dt>
-            <dd>also 🇩🇪 Berlin</dd>
-          </div> -->
         </dl>
       </section>
       <section></section>
@@ -50,11 +48,7 @@
           Latest articles
         </h2>
         <div class="post-grid sm:ml-12 md:w-1/2 lg:w-full lg:ml-0 xl:w-2/3">
-          <!-- <post-card
-            v-for="edge in $page.posts.edges"
-            :key="edge.node.id"
-            :post="edge.node"
-          /> -->
+          <post-list-item v-for="post in posts" :key="post.slug" :post="post" />
         </div>
       </section>
     </div>
@@ -62,10 +56,22 @@
 </template>
 
 <script>
-export default {}
+export default {
+  async asyncData({ $content }) {
+    const posts = await $content('posts').fetch()
+    return {
+      posts,
+    }
+  },
+}
 </script>
 
 <style>
+.posts h2::before {
+  display: block;
+  content: '';
+  @apply w-24 mb-2 border-t-2 border-blue-400;
+}
 .home {
   display: grid;
   grid-template-columns: 30% 1fr;
