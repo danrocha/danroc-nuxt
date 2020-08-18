@@ -1,55 +1,36 @@
 <template>
   <div>
-    <Nuxt />
+    <svg-sprite />
+    <header class="mb-12">
+      <div class="flex flex-wrap items-center justify-between">
+        <h1 class="font-mono text-4xl text-pink-600">
+          danroc.dev
+        </h1>
+        <ul class="flex space-x-2 text-gray-800">
+          <li>
+            <a href="//twitter.com/danrocc" target="_blank" rel="nofollow"
+              ><svg-icon icon="twitter"
+            /></a>
+          </li>
+          <li>
+            <a href="//github.com/danrocha" target="_blank" rel="nofollow"
+              ><svg-icon icon="github"
+            /></a>
+          </li>
+          <li>
+            <a href="//linkedin.com/in/danrocha" target="_blank" rel="nofollow"
+              ><svg-icon icon="linkedin"
+            /></a>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <Nuxt />
+    </main>
+    <footer class="pt-4 my-8 text-sm text-gray-500 border-t border-gray-500">
+      <span>Copyright © {{ new Date().getFullYear() }}. </span>
+      <span>Powered by <a href="//nuxtjs.org"> Nuxt.js </a></span>
+    </footer>
   </div>
 </template>
-
-<style>
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
-}
-</style>
