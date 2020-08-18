@@ -67,6 +67,12 @@ export default {
     '@nuxtjs/stylelint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
+    [
+      '@nuxtjs/date-fns',
+      {
+        methods: ['format'],
+      },
+    ],
   ],
   /*
    ** Nuxt.js modules

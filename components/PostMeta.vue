@@ -1,17 +1,17 @@
 <template>
   <section class="text-sm tracking-wide text-gray-500 uppercase">
-    Posted {{ post.date }}.
-    <template v-if="post.timeToRead">
+    Posted {{ this.$dateFns.format(new Date(date), 'd.M.yy') }}.
+    <!-- <template v-if="post.timeToRead">
       {{ post.timeToRead }} min read.
-    </template>
+    </template> -->
   </section>
 </template>
 
 <script>
 export default {
   props: {
-    post: {
-      type: Object,
+    date: {
+      type: String,
       required: true,
     },
   },
