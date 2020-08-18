@@ -4,10 +4,19 @@
  ** Docs: https://tailwindcss.com/docs/configuration
  ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
  */
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
-  theme: {},
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['PT Sans', ...defaultTheme.fontFamily.sans],
+        mono: ['PT Mono', ...defaultTheme.fontFamily.mono],
+      },
+    },
+  },
   variants: {},
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
   purge: {
     // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
     enabled: process.env.NODE_ENV === 'production',
