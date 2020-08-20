@@ -2,7 +2,7 @@
   <div class="container">
     <div class="home">
       <section
-        class="mb-8 prose content sm:ml-12 sm:mb-12 md:w-1/2 lg:m-0 lg:w-full"
+        class="mb-8 prose content sm:ml-12 sm:mb-12 md:w-2/3 lg:m-0 lg:w-full"
       >
         <p>
           I'm <strong>Daniel da Rocha</strong>, a Brazilian architect and web
@@ -47,7 +47,7 @@
         <h2 class="mb-4 text-base tracking-wide text-gray-500 uppercase">
           Latest articles
         </h2>
-        <div class="post-grid sm:ml-12 md:w-1/2 lg:w-full lg:ml-0 xl:w-2/3">
+        <div class="post-grid sm:ml-12 md:w-2/3 lg:w-full lg:ml-0 xl:w-2/3">
           <post-list-item v-for="post in posts" :key="post.slug" :post="post" />
         </div>
       </section>
@@ -72,9 +72,20 @@ export default {
   content: '';
   @apply w-24 mb-2 border-t-2 border-blue-400;
 }
-.home {
-  display: grid;
-  grid-template-columns: 30% 1fr;
-  grid-gap: 2rem;
+
+/* @screen md {
+  .home {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+  }
+} */
+
+@screen lg {
+  .home {
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    grid-gap: 2rem;
+  }
 }
 </style>
