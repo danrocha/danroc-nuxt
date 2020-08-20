@@ -80,6 +80,8 @@ export default {
   modules: [
     // Doc: https://github.com/nuxt/content
     '@nuxt/content',
+    'nuxt-rfg-icon',
+    '@nuxtjs/manifest',
   ],
   /*
    ** Content module configuration
