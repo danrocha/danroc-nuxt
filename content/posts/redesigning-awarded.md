@@ -11,7 +11,7 @@ description: Awarded needs a redesign - it is currently full of bugs and its int
 
 A few years back, as I was discovering the world of modern web development, I had the idea of diving into it to build a database of award winning movies.
 
-![](./images/awarded-banner.jpg)
+![](https://res.cloudinary.com/danroc/image/upload/dpr_auto,f_auto/v1597900360/danrocdev/awarded-banner.jpg)
 
 I called it **[Awarded](https://awarded.to)**.
 
@@ -31,7 +31,7 @@ The original vision for the UI was to make it [Reddit](https://www.reddit.com/).
 
 ### Version 1.0
 
-I named the app **Awarded** and went on to build it. Version 1.0 was built on **[Flask](https://palletsprojects.com/p/flask/)**, a Python web application framework. I first learned about it while taking [MIT's CS50 online course](https://www.edx.org/course/cs50s-introduction-to-computer-science). I was quickly hooked at how easy it was to build fast, responsive applications for the web.
+I named the app **Awarded** and went on to build it. Version 1.0 was built on **[Flask](https://palletsprojects.com/p/flask/)**, a Python web application framework. I first learned about it while taking [Harvard's CS50 online course](https://www.edx.org/course/cs50s-introduction-to-computer-science). I was quickly hooked at how easy it was to build fast, responsive applications for the web.
 
 In the backend, a built a REST API, grabbing data from a **PostgresSQL** database with the aid of **[SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/en/2.x/)**. It was all working fine until I ran into some issues when trying to use **jQuery** to add reactivity to my admin pages. After a lot of spaghetti-coding, I figure there had to be a better way.
 
@@ -53,15 +53,15 @@ By that time, I had learned about **[GraphQL](https://graphql.org/)** and **[fun
 
 I still used Vue, of course, but started the whole administration area from scratch using GraphQL and **[Bulma](https://bulma.com/)**. The backend turned into a simple Node [Express](https://expressjs.com/) server running **[Postgraphile](https://www.graphile.org/postgraphile/)**, which automatically turned my Postgres database into a fully-featured GraphQL API.
 
-![](./images/awarded-admin-usage.gif)
+![](https://res.cloudinary.com/danroc/image/upload/dpr_auto,f_auto/danrocdev/awarded-admin-usage.gif)
 
 I also finally built the frontend, also with a lot of Vue. I replace Bulma by [TailwindCSS](https://tailwindcss.com) to have finer control over the look and feel of the app, and added **[Apollo GraphQL](https://www.apollographql.com/)** to communicate with the backend.
 
-![](./images/awarded-usage.gif)
+![](https://res.cloudinary.com/danroc/image/upload/dpr_auto,f_auto/danrocdev//awarded-usage.gif)
 
 Once it was up and running, I added a whole new section: **[Awarded Books](https://awarded.to/books)**. As with **[Awarded Movies](https://awarded.to/movies)**, the idea was to turn it into the ultimate reference of award-nominated books online (with some affiliate-marketing aspirations to it, of course).
 
-![](./images/awarded-books.gif)
+![](https://res.cloudinary.com/danroc/image/upload/dpr_auto,f_auto/danrocdev//awarded-books.gif)
 
 Exciting times: I launched, kept adding data, getting people to use it. It was always gonna be a side project I did for fun, so I didn't really care if it got traction or not. The main thing was there, working, and it was fun to use.
 
@@ -73,19 +73,19 @@ As I kept working on it and adding data, I kept doing small changes on the code 
 
 Then one day I installed **[Sentry](https://sentry.io/)** to automatically report bugs users might be encountering. As a complete amateur, of course I did not implement any automated testing. And of course, **I was suddenly flooded with Sentry bug warnings.**
 
-![](./images/sentry.png)
+![](https://res.cloudinary.com/danroc/image/upload/dpr_auto,f_auto/danrocdev//sentry.png)
 
 On one side, it was cool to see people were actually using the site. But it was also showing what a bad experience they were having. Bugs were plenty and many were unexplicable, due to the mess the app's codebase was in.
 
 Every time I had to get into the code to try and figure a solution out, I got more and more lost. It was all spaghetti. **I was afraid I would make things worse just by trying to fix them.**
 
-![](./images/awarded-codebase.png)
+![](https://res.cloudinary.com/danroc/image/upload/dpr_auto,f_auto/danrocdev//awarded-codebase.png)
 
 I had also many ideas for new features and fun things I wanted to try. But it was just impossible with that code. With time, I also had learned so many new things concerning web development, and it was easy to see all the glaring mistakes I did when I coded this version.
 
 Moreover, I wanted to have a News section on Awarded. Because I wanted to used markdown for my posts, I ended up creating a separate Gridsome project just for it. Needless to say, sinchronizing styles between both projects was a bit of a pain, as was the whole deployment process.
 
-![](./images/awarded-news.gif)
+![](https://res.cloudinary.com/danroc/image/upload/dpr_auto,f_auto/danrocdev//awarded-news.gif)
 
 I knew I had to rewrite it, for my own sanity. And to finally get a proper version out there, with less bugs and more useable.
 

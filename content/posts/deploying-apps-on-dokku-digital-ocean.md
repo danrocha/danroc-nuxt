@@ -17,37 +17,37 @@ However, first, a little background.
 
 ## What do I build?
 
-My projects are all built on a Vue-based frontend (either using Vue-CLI, Nuxt, Vuepress, or Gridsome). When I need a database, I set up a Postgres instance with Postgraphile, which gives me a GraphQL endpoint in the backend. Just recently, I started exploring Strapi as an attractive CMS, which also uses Postgres as a database and delivers data to my frontend through a GraphQL endpoint. 
+My projects are all built on a Vue-based frontend (either using Vue-CLI, Nuxt, Vuepress, or Gridsome). When I need a database, I set up a Postgres instance with Postgraphile, which gives me a GraphQL endpoint in the backend. Just recently, I started exploring Strapi as an attractive CMS, which also uses Postgres as a database and delivers data to my frontend through a GraphQL endpoint.
 
 ## Where do I host?
 
 For all my frontend needs, Netlify is more than enough. It is free, easy to use, has excellent interface and usability. It is perfect for Vue-powered projects.
 
-Unfortunately, Netlify won’t work for my backend projects which rely on Postgres. I tried many services but ended up choosing Dokku on DigitalOcean as the best solution all my backend needs. 
+Unfortunately, Netlify won’t work for my backend projects which rely on Postgres. I tried many services but ended up choosing Dokku on DigitalOcean as the best solution all my backend needs.
 
 ## What else have I tried?
 
-Once you start using Postgres in the backend, there are two options: self-hosted or hosted database services. 
+Once you start using Postgres in the backend, there are two options: self-hosted or hosted database services.
 
-For a long time, I thought I had to avoid self-hosting (and self-maintaining) a Postgres database. Sharding? Replication? Backups and restores? Upgrades? It all used to give me chills. 
+For a long time, I thought I had to avoid self-hosting (and self-maintaining) a Postgres database. Sharding? Replication? Backups and restores? Upgrades? It all used to give me chills.
 
 So I spent most of my early development days trying out hosted database services out there.
 
 ### Heroku
 
-Yes, Heroku has a generous free tier with a free Postgres add-on. 
+Yes, Heroku has a generous free tier with a free Postgres add-on.
 
 However, free comes to a cost when you realize you’ll cross some of its limits faster than you think. When you decide to fix all issues and upgrades your services, you are already paying much more than free.
 
 ### AWS RDS
 
-I then moved to AWS RDS, creating a Postgres instance in a container. 
+I then moved to AWS RDS, creating a Postgres instance in a container.
 
-I thought I could host all my databases that for minimal cost, as they offered a very generous free tier. However, once the free tier ended, I was paying almost $50 a month for the database needs of my little side projects. This needed to change.
+I thought I could host all my databases that for minimal cost, as they offered a very generous free tier. However, once the free tier ended, I was paying almost \$50 a month for the database needs of my little side projects. This needed to change.
 
 ## Why Dokku on Digital Ocean?
 
-After a while paying the bill, I realized I was (insert metaphor). Of course, there are advantages of hosted database solutions. However, for the scale of my side projects, I need very little. After all, if something goes wrong and my apps go offline,  I can restore them from backups and get them running again.
+After a while paying the bill, I realized I was (insert metaphor). Of course, there are advantages of hosted database solutions. However, for the scale of my side projects, I need very little. After all, if something goes wrong and my apps go offline, I can restore them from backups and get them running again.
 
 Therefore, my requirements were simple:
 
@@ -55,9 +55,9 @@ Therefore, my requirements were simple:
 - Easy Git deployments
 - Low price
 
-That is where Dokku comes into play. It is just like Heroku, but without the pretty UI. You have to host it on your droplet, and it is all command-line-based. 
+That is where Dokku comes into play. It is just like Heroku, but without the pretty UI. You have to host it on your droplet, and it is all command-line-based.
 
-However, it offers it all: you can easily create apps, add domains, set variables, add Postgres databases, set up scheduled backups, and deploy via git. 
+However, it offers it all: you can easily create apps, add domains, set variables, add Postgres databases, set up scheduled backups, and deploy via git.
 
 All in one little Digital Ocean droplet costing me 5USD/month.
 
@@ -74,7 +74,7 @@ Every time I start a new app, I follow a series of steps which make the whole pr
 You can use Dokku by typing `dokku` followed by the command and other options. Type `dokku help` to see a list of all commands:
 
 ```shell
-~ dokku help
+$ dokku help
 Usage: dokku [--quiet|--trace|--rm-container|--rm|--force] COMMAND <app> [command-specific-options]
 
 Primary help options, type “dokku COMMAND:help” for more details, or dokku help --all to see all commands.
@@ -101,7 +101,7 @@ Commands:
 As you can see, you can also type `dokku COMMAND:help` for further help on specific commands. As we want to create an app, let’s check how to use the `apps` command:
 
 ```shell
-~ dokku apps:help
+$ dokku apps:help
 Usage: dokku apps[:COMMAND]
 Manage Dokku apps
 
@@ -128,7 +128,7 @@ Additional commands:
 Easy to figure out what to do next, right?
 
 ```shell
-~ dokku apps:create appname
+$ dokku apps:create appname
 -----> Creating appname... done
 ```
 
@@ -142,69 +142,63 @@ Add the droplet IP in the command above before adding. I am assuming you already
 
 ### Add a domain
 
-I always like to have my backend hosted on a subdomain of my apps. For example, if my app is at [awarded.to](https://awarded.to), I want its API endpoint to be at *api.awarded.to*. 
+I always like to have my backend hosted on a subdomain of my apps. For example, if my app is at [awarded.to](https://awarded.to), I want its API endpoint to be at _api.awarded.to_.
 
 You do not need to do this (you can always access your app using the droplet’s IP address), but it makes it all clean and friendly. It also helps when you have several apps in the same droplet. Moreover, it is straightforward to do:
 
-First, you need to modify your domain’s DNS settings. You’ll need to add an *A record* named after your subdomain and pointing to the droplet’s IP address. On Netlify, it looks like this:
+First, you need to modify your domain’s DNS settings. You’ll need to add an _A record_ named after your subdomain and pointing to the droplet’s IP address. On Netlify, it looks like this:
 
-![Screenshot of Netlify’s DNS records](./images/netlify-dns-screenshot.png)
+![Screenshot of Netlify’s DNS records](https://res.cloudinary.com/danroc/image/upload/dpr_auto,f_auto/danrocdev/netlify-dns-screenshot.png)
 
-The instructions for your registrar might differ. Just search its docs for *add DNS subdomain* and you should find answers quick.
+The instructions for your registrar might differ. Just search its docs for _add DNS subdomain_ and you should find answers quick.
 
 Now back on Dokku, you’ll add the subdomain to your app. For that, type:
 
 ```shell
-~ dokku domains:add appname domain
+$ dokku domains:add appname domain
 ```
 
-The domain should be without the `http` protocol (just *api.awarded.to* instead of *https://api.awarded.to*).
+The domain should be without the `http` protocol (just _api.awarded.to_ instead of _https://api.awarded.to_).
 
 To keep it all safe and secure, you should also enforce `https` on your endpoint. This article walks you through the steps necessary to ensure encryption when accessing your backend endpoint:
 
 [Effortlessly add HTTPS to Dokku, with Let’s Encrypt](https://medium.com/@pimterry/effortlessly-add-https-to-dokku-with-lets-encrypt-900696366890)
-
 
 ### Add Postgres
 
 As in Heroku, adding a Postgres service to your app is pretty simple. First, you create a new database:
 
 ```shell
-~ dokku postgres:create dbname
+$ dokku postgres:create dbname
 
 # Then link it to your app
-~ dokku postgres:link appname dbname
+$ dokku postgres:link appname dbname
 ```
 
 That’s it. It creates an environment variable called DATABASE_URL with your database address. If your app is configured to access the database via this environment variable, you are good to go. Otherwise, you can set other variables as necessary, based on this value.
 
-You should also set up automatic backups on your database. I usually set up a cron job to create a database dump every day, and upload it to an AWS S3 bucket. 
+You should also set up automatic backups on your database. I usually set up a cron job to create a database dump every day, and upload it to an AWS S3 bucket.
 
 For that, you’ll first need both an S3 bucket and an IAM user with the appropriate permissions. Create a bucket on S3 and a user on AWS IAM with the following policy:
 
 ```json
 {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Action": [
-                "s3:ListAllMyBuckets",
-                "s3:GetBucketLocation"
-            ],
-            "Effect": "Allow",
-            "Resource": [
-                "arn:aws:s3:::*"
-            ]
-        },
-        {
-            "Effect": "Allow",
-            "Action": "s3:*",
-            "Resource": [
-                "arn:aws:s3:::lutasanticapital/*",
-                "arn:aws:s3:::lutasanticapital"
-            ]
-        }
-    ]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": ["s3:ListAllMyBuckets", "s3:GetBucketLocation"],
+      "Effect": "Allow",
+      "Resource": ["arn:aws:s3:::*"]
+    },
+    {
+      "Effect": "Allow",
+      "Action": "s3:*",
+      "Resource": [
+        "arn:aws:s3:::lutasanticapital/*",
+        "arn:aws:s3:::lutasanticapital"
+      ]
+    }
+  ]
 }
 ```
 
@@ -222,16 +216,15 @@ dokku postgres:backup appname BUCKET_NAME
 dokku postgres:backup-schedule appname CRON_SCHEDULE BUCKET_NAME
 ```
 
-
 ## Deploy and enjoy
 
 That is pretty much it. If your app is not overly complicated, it should be working right after the first git push to the dokku remote:
 
 ```
-~ git push dokku master
+$ git push dokku master
 ```
 
-Keep an eye on the log to see if the app deployed correctly and to correct any error that may arise. 
+Keep an eye on the log to see if the app deployed correctly and to correct any error that may arise.
 
 Your app should then be live on your chosen domain, just waiting for your frontend to connect!
 
