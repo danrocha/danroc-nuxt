@@ -1,0 +1,4 @@
+body,
+html {
+  @apply p-2 text-gray-800;
+}

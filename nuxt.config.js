@@ -1,3 +1,6 @@
+const GFONTS =
+  'https://fonts.googleapis.com/css2?family=PT+Sans:wght@300;400;600;700&family=PT+Mono'
+
 export default {
   /*
    ** Nuxt rendering mode
@@ -24,7 +27,21 @@ export default {
         content: process.env.npm_package_description || '',
       },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'preconnect',
+        href: 'https://fonts.gstatic.com',
+        crossorigin: true,
+      },
+      { rel: 'preload', as: 'style', href: `${GFONTS}&display=swap` },
+      {
+        rel: 'stylesheet',
+        href: `${GFONTS}&display=swap`,
+        media: 'print',
+        onload: 'this.media="all"',
+      },
+    ],
   },
   /*
    ** Global CSS
@@ -34,7 +51,7 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [],
+  plugins: ['~/plugins/vue-disqus'],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -50,6 +67,12 @@ export default {
     '@nuxtjs/stylelint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
+    [
+      '@nuxtjs/date-fns',
+      {
+        methods: ['format'],
+      },
+    ],
   ],
   /*
    ** Nuxt.js modules
