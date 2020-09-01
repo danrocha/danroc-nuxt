@@ -1,13 +1,16 @@
 <template>
   <article
-    class="prose-sm prose md:w-2/3 lg:pl-8 xl:w-1/2 sm:prose lg:prose-lg"
+    class="prose sm:prose-sm md:prose-md md:w-2/3 lg:pl-8 xl:w-1/2 lg:prose-lg xl:prose-xl"
   >
-    <header>
-      <h1>
+    <header class="mb-8">
+      <h1 class="font-bold">
         {{ post.title }}
       </h1>
-      <!-- <author class="post-author" /> -->
-      <post-meta :date="post.date" class="mb-4" />
+      <div class="flex -mt-4 space-x-2 font-mono">
+        <post-meta :date="post.date" />
+        <!-- <span>/</span>
+        <post-tags :tags="post.tags" /> -->
+      </div>
     </header>
 
     <main>
@@ -23,7 +26,7 @@
       <NuxtContent class="mx-auto" :document="post" />
     </main>
     <footer class="mb-8">
-      <post-tags :tags="post.tags" />
+      <!-- <post-tags :tags="post.tags" /> -->
       <div class="h-12" />
       <disqus />
     </footer>
