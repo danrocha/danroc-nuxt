@@ -44,21 +44,45 @@ module.exports = {
               marginLeft: 0,
             },
             'p, h3, ul, ol': {
-              marginLeft: theme('margin.8'),
+              marginLeft: theme('margin.0'),
             },
+            // 'p > img': {
+            //   marginLeft: theme('margin["-8"]'),
+            //   paddingRight: theme('padding["-8"]'),
+            // },
           },
         ],
       },
       sm: {
         css: [
           {
-            'p, h3, ul, ol': {
-              marginLeft: theme('margin.8'),
+            'h2, h3': {
+              fontWeight: 400,
+            },
+            'h2:before': {
+              display: 'block',
+              content: '""',
+              width: theme('width.24'),
+              marginBottom: theme('margin.2'),
+              borderTopWidth: theme('borderWidth.2'),
+              borderTopColor: theme('colors.blue.400'),
             },
             'ul > li::before': {
+              content: '"×"',
+              position: 'absolute',
+              color: theme('colors.pink.500'),
+              fontWeight: theme('fontWeight.bold'),
+              backgroundColor: null,
+              borderRadius: null,
               width: null,
               height: null,
               top: null,
+            },
+            'ul > li > p': {
+              marginLeft: 0,
+            },
+            'p, h3, ul, ol': {
+              marginLeft: theme('margin.8'),
             },
           },
         ],
