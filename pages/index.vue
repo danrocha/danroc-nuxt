@@ -8,6 +8,8 @@
           ><svg-icon icon="arrow-down" />
         </p>
       </section>
+      <section class="hidden lg:block"></section>
+      <section class="hidden lg:block"></section>
       <!-- List PROJECTS -->
       <section class="section">
         <a name="projects" />
@@ -35,7 +37,17 @@
           <post-list-item v-for="post in posts" :key="post.slug" :post="post" />
         </div>
       </section>
-
+      <section>
+        <p class="hidden mb-8 text-right lg:block">
+          <img
+            :src="myPhoto"
+            width="200"
+            height="200"
+            alt="Avatar from Daniel da Rocha"
+            class="inline-block shadow"
+          />
+        </p>
+      </section>
       <!-- ABOUT -->
       <section class="section">
         <a name="about" />
@@ -43,19 +55,21 @@
           About
         </h2>
         <div class="h-8" />
-        <p class="mb-8 text-center">
+        <p class="mb-8 text-center lg:hidden">
           <img
             :src="myPhoto"
             width="200"
             height="200"
             alt="Avatar from Daniel da Rocha"
-            class="inline-block"
+            class="inline-block shadow"
           />
         </p>
-        <section class="mb-8 -ml-8 sm:ml-12 sm:mb-12 md:w-2/3 lg:m-0 lg:w-full">
+        <section
+          class="mb-8 -ml-8 sm:ml-12 sm:mb-12 md:w-2/3 lg:ml-0 lg:w-full"
+        >
           <nuxt-content :document="about" class="prose" />
         </section>
-        <social-icons class="justify-center" />
+        <social-icons class="justify-center lg:justify-start" />
       </section>
     </div>
   </div>
@@ -80,7 +94,6 @@ export default {
       return this.$cloudinary().url(`danrocdev/danieldarocha.jpg`, {
         width: 200,
         height: 200,
-        radius: 'max',
         crop: 'thumb',
         effect: 'grayscale',
       })
