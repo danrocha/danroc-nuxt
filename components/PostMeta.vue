@@ -1,6 +1,6 @@
 <template>
-  <section class="text-sm tracking-wide text-gray-500 uppercase">
-    Posted {{ this.$dateFns.format(new Date(date), 'd.M.yy') }}.
+  <section class="font-mono text-sm tracking-wide uppercase">
+    {{ this.$dateFns.format(new Date(date), 'd.MM.yy') }}
     <!-- <template v-if="post.timeToRead">
       {{ post.timeToRead }} min read.
     </template> -->

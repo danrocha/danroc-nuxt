@@ -1,13 +1,12 @@
 <template>
-  <section class="text-sm text-gray-500">
+  <section class="font-mono text-sm">
     <nuxt-link
       v-for="tag in tags"
       :key="tag"
       :to="`/tags/${tag}`"
       class="mr-2 link"
+      >#{{ tag }}</nuxt-link
     >
-      #{{ tag }}
-    </nuxt-link>
   </section>
 </template>
 

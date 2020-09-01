@@ -10,9 +10,11 @@
         }}</nuxt-link>
       </h3>
       <p class="mb-2" v-html="post.description" />
-
-      <post-meta :date="post.date" />
-      <post-tags :tags="post.tags" />
+      <footer class="flex space-x-2 font-mono">
+        <post-meta :date="post.date" />
+        <span>/</span>
+        <post-tags :tags="post.tags" />
+      </footer>
     </div>
   </article>
 </template>
