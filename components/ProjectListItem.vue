@@ -8,7 +8,7 @@
         class="w-full h-full shadow content-cover"
       />
     </figure>
-    <div class="px-4 body">
+    <div class="body">
       <h3 class="font-semibold">
         <nuxt-link :to="project.path" class="link" tag="a">{{
           project.title
@@ -16,10 +16,6 @@
       </h3>
       <p v-html="project.description" />
     </div>
-    <!-- <footer class="px-4 pb-4 footer">
-      <project-meta :date="project.date" />
-      <post-tags :tags="project.tags" />
-    </footer> -->
   </article>
 </template>
 
@@ -47,7 +43,8 @@ export default {
 <style scoped>
 article {
   display: grid;
-  grid-gap: 0.5rem;
+  grid-gap: 2rem;
+  grid-template-columns: 100px 1fr;
   grid-template-areas: 'image body';
   align-items: center;
 }
