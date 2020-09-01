@@ -1,5 +1,5 @@
 const GFONTS =
-  'https://fonts.googleapis.com/css2?family=PT+Sans:wght@300;400;600;700&family=PT+Mono'
+  'https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;600;700&family=Fira+Mono:wght@400;700'
 
 export default {
   /*
@@ -82,7 +82,11 @@ export default {
     '@nuxt/content',
     'nuxt-rfg-icon',
     '@nuxtjs/manifest',
+    '@nuxtjs/cloudinary',
   ],
+  cloudinary: {
+    cloudName: 'danroc',
+  },
   /*
    ** Content module configuration
    ** See https://content.nuxtjs.org/configuration
