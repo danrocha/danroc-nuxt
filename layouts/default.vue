@@ -6,7 +6,7 @@
         <h1 class="font-mono text-5xl text-pink-600">
           danroc.dev
         </h1>
-        <social-icons />
+        <social-icons class="hidden" />
       </div>
     </header>
     <main class="main">
