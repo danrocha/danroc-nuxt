@@ -10,8 +10,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['PT Sans', ...defaultTheme.fontFamily.sans],
-        mono: ['PT Mono', ...defaultTheme.fontFamily.mono],
+        sans: ['Fira Sans', ...defaultTheme.fontFamily.sans],
+        mono: ['Fira Mono', ...defaultTheme.fontFamily.mono],
       },
     },
     typography: (theme) => ({
