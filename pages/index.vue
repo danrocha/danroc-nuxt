@@ -1,55 +1,74 @@
 <template>
   <div class="container">
     <div class="home">
-      <section
-        class="mb-8 prose content sm:ml-12 sm:mb-12 md:w-2/3 lg:m-0 lg:w-full"
-      >
-        <p>
-          I'm <strong>Daniel da Rocha</strong>, a Brazilian architect and web
-          developer.
+      <section class="mb-12 sm:ml-12 md:w-2/3 lg:m-0 lg:w-full">
+        <nuxt-content :document="homeAbout" class="mb-2 text-xl" />
+        <p class="flex items-center justify-end">
+          <a href="#about" class="link">read more</a
+          ><svg-icon icon="arrow-down" />
         </p>
-        <p>
-          I apply skills learned in architecture to my development efforts: the
-          ability to deal with complex problems, to devise simple and elegant
-          solutions, and to deal with diverse and complex team configurations.
-        </p>
-        <p>
-          Things I am currently building include:
-          <a href="//awarded.to" target="_blank" class="font-semibold link"
-            >Awarded</a
-          >,
-          <a
-            href="//thearchitecturelist.com"
-            target="_blank"
-            class="font-semibold link"
-            >The Architecture List</a
-          >,
-          <a
-            href="//theforeignarchitect"
-            target="_blank"
-            class="font-semibold link"
-            >The Foreign Architect</a
-          >, and <strong>Berlin Architectural Network</strong> (WIP).
-        </p>
-        <dl class="flex mt-8">
-          <div class="mr-8">
-            <dt class="text-xs text-gray-500 uppercase trackign wide">
-              Homebase & Currently in
-            </dt>
-            <dd>🇩🇪Berlin</dd>
-          </div>
-        </dl>
+      </section>
+      <section class="hidden lg:block"></section>
+      <section class="hidden lg:block"></section>
+      <!-- List PROJECTS -->
+      <section class="section">
+        <a name="projects" />
+
+        <h2 class="text-right text-blue-500">
+          Projects
+        </h2>
+
+        <div class="project-grid sm:ml-12 md:w-2/3 lg:w-full lg:ml-0 xl:w-2/3">
+          <project-list-item
+            v-for="project in projects"
+            :key="project.slug"
+            :project="project"
+          />
+        </div>
       </section>
       <section></section>
-      <section></section>
       <!-- List posts -->
-      <section class="posts">
-        <h2 class="mb-4 text-base tracking-wide text-gray-500 uppercase">
-          Latest articles
+      <section class="section">
+        <a name="posts" />
+        <h2 class="text-green-500">
+          Articles
         </h2>
+
         <div class="post-grid sm:ml-12 md:w-2/3 lg:w-full lg:ml-0 xl:w-2/3">
           <post-list-item v-for="post in posts" :key="post.slug" :post="post" />
         </div>
+      </section>
+      <section>
+        <p class="hidden mb-8 text-right lg:block">
+          <img
+            :src="myPhoto"
+            width="200"
+            height="200"
+            alt="Avatar from Daniel da Rocha"
+            class="inline-block shadow"
+          />
+        </p>
+      </section>
+      <!-- ABOUT -->
+      <section class="section">
+        <a name="about" />
+        <h2 class="text-yellow-500">
+          About
+        </h2>
+
+        <p class="mb-8 text-right md:text-left lg:hidden">
+          <img
+            :src="myPhoto"
+            width="200"
+            height="200"
+            alt="Avatar from Daniel da Rocha"
+            class="inline-block shadow"
+          />
+        </p>
+        <section class="mb-8 sm:ml-12 sm:mb-12 md:w-2/3 lg:ml-0 lg:w-full">
+          <nuxt-content :document="about" class="prose" />
+        </section>
+        <social-icons class="justify-end md:ml-12 md:justify-start lg:m-0" />
       </section>
     </div>
   </div>
@@ -59,18 +78,70 @@
 export default {
   async asyncData({ $content }) {
     const posts = await $content('posts').fetch()
+    const projects = await $content('projects').sortBy('order').fetch()
+    const homeAbout = await $content('homeAbout').fetch()
+    const about = await $content('about').fetch()
     return {
       posts,
+      about,
+      homeAbout,
+      projects,
     }
+  },
+  computed: {
+    myPhoto() {
+      return this.$cloudinary().url(`danrocdev/danieldarocha.jpg`, {
+        width: 200,
+        height: 200,
+        crop: 'thumb',
+        effect: 'grayscale',
+        fetchFormat: 'auto',
+        dpr: 2,
+      })
+    },
   },
 }
 </script>
 
 <style>
-.posts h2::before {
+.section h2 {
+  @apply font-mono text-5xl tracking-wide lowercase  text-right mb-8;
+}
+.section {
+  @apply mb-12;
+}
+@screen sm {
+  .section {
+    @apply mb-20;
+  }
+  .section h2 {
+    @apply mb-10;
+  }
+}
+@screen lg {
+  .section h2 {
+    @apply text-left;
+  }
+}
+
+/* .section h2::before {
   display: block;
   content: '';
-  @apply w-24 mb-2 border-t-2 border-blue-400;
+  @apply mb-1 w-32 border-t-2 border-black;
+}
+.section h2.blue::before {
+  @apply border-blue-500;
+}
+.section h2.green::before {
+  @apply border-green-500;
+}
+.section h2.yellow::before {
+  @apply border-yellow-500;
+} */
+
+.project-grid {
+  display: grid;
+  grid-gap: 4rem;
 }
 
 /* @screen md {
@@ -84,8 +155,8 @@ export default {
 @screen lg {
   .home {
     display: grid;
+    grid-gap: 3rem;
     grid-template-columns: 30% 1fr;
-    grid-gap: 2rem;
   }
 }
 </style>

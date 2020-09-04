@@ -5,7 +5,12 @@
       <div class="flex flex-wrap items-center justify-between">
         <nav>
           <p class="font-mono text-pink-600 lg:-ml-4">
-            <nuxt-link to="/">&larr; danroc.dev</nuxt-link>
+            <nuxt-link to="/"
+              >&larr;
+              <span class="px-1 text-white bg-pink-600"
+                >danroc.dev</span
+              ></nuxt-link
+            >
           </p>
         </nav>
         <social-icons />
