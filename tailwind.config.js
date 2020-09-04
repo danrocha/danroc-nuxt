@@ -46,10 +46,9 @@ module.exports = {
             'p, h3, ul, ol': {
               marginLeft: theme('margin.0'),
             },
-            // 'p > img': {
-            //   marginLeft: theme('margin["-8"]'),
-            //   paddingRight: theme('padding["-8"]'),
-            // },
+            img: {
+              boxShadow: theme('boxShadow.md'),
+            },
           },
         ],
       },
