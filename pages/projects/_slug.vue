@@ -17,9 +17,9 @@
     </header>
 
     <main>
-      <section class="intro">
+      <!-- <section class="intro">
         <div v-html="project.intro" class="text-gray-900" />
-      </section>
+      </section> -->
 
       <section class="links">
         <p class="flex items-center space-x-2">
@@ -39,8 +39,9 @@
           >
         </p>
       </section>
+
       <section class="prose body sm:prose-sm md:prose-md lg:prose-lg">
-        <nuxt-content :document="project" class="-mt-8 lg:-mt-12" />
+        <nuxt-content :document="project" />
       </section>
       <section class="techstack">
         <div class="prose sm:prose-sm md:prose-md lg:hidden">
@@ -59,7 +60,6 @@
       </section>
     </main>
     <footer class="mb-8">
-      <!-- <post-tags :tags="project.tags" /> -->
       <div class="h-12" />
     </footer>
   </article>
@@ -87,16 +87,15 @@ export default {
 }
 </script>
 <style scoped>
-main {
+/* main {
   display: grid;
   grid-gap: 2rem;
-}
-.intro {
-  max-width: 65ch;
-}
+} */
 
 @screen lg {
   main {
+    display: grid;
+    grid-gap: 2rem;
     grid-template-columns: auto 1fr;
     grid-template-areas:
       'intro .'
@@ -114,6 +113,7 @@ main {
   }
   .techstack {
     grid-area: techstack;
+    align-self: end;
   }
 }
 </style>
