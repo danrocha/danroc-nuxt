@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/github/last-commit/danrocha/danroc-nuxt"/> 
   <img src="https://img.shields.io/github/languages/count/danrocha/danroc-nuxt"/> 
   <img src="https://img.shields.io/github/languages/top/danrocha/danroc-nuxt"/>
-  <a href="https://github.com/danrocha/danroc-nuxt/actions"><img src="https://github.com/danrocha/danroc-nuxt/workflows/cypress-run/badge.svg"/>Cypress</a>
+  <!-- <a href="https://github.com/danrocha/danroc-nuxt/actions"><img src="https://github.com/danrocha/danroc-nuxt/workflows/cypress-run/badge.svg"/>Cypress</a> -->
 </p>
 
 ## Built With
