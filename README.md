@@ -6,7 +6,8 @@
   <img src="https://img.shields.io/netlify/ee7edf64-8be7-4060-b592-09f8b65b0804"/> 
   <img src="https://img.shields.io/github/last-commit/danrocha/danroc-nuxt"/> 
   <img src="https://img.shields.io/github/languages/count/danrocha/danroc-nuxt"/> 
-  <img src="https://img.shields.io/github/languages/top/danrocha/danroc-nuxt"/> 
+  <img src="https://img.shields.io/github/languages/top/danrocha/danroc-nuxt"/>
+  <a href="https://github.com/danrocha/danroc-nuxt/actions"><img src="https://github.com/danrocha/danroc-nuxt/workflows/cypress-run/badge.svg"/>Cypress</a>
 </p>
 
 ## Built With
@@ -27,23 +28,23 @@
 
 ```bash
 # install dependencies
-$ yarn install
+$ npm run install
 
 # serve with hot reload at localhost:3000
-$ yarn dev
+$ npm run dev
 
 # build for production and launch server
-$ yarn build
-$ yarn start
+$ npm run build
+$ npm run start
 
 # generate static project
-$ yarn generate
+$ npm run generate
 
 # run unit tests
-$ yarn test
+$ npm run test
 
 # run integration tests
-$ yarn cy:run
+$ npm run cy:open
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
