@@ -1,11 +1,11 @@
 <template>
   <section class="font-mono text-right">
-    <span class="sm:hidden">
+    <datetime class="sm:hidden" :datetime="date">
       {{ this.$dateFns.format(new Date(date), 'd.MM.yy') }}
-    </span>
-    <span class="hidden sm:block">
+    </datetime>
+    <datetime :datetime="date" class="hidden sm:block">
       {{ this.$dateFns.format(new Date(date), 'd.MM') }}
-    </span>
+    </datetime>
     <!-- <template v-if="post.timeToRead">
       {{ post.timeToRead }} min read.
     </template> -->
