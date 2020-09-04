@@ -53,7 +53,7 @@ describe('Home', () => {
   })
 
   // ARTICLES
-  it.only('Contains the Articles section', () => {
+  it('Contains the Articles section', () => {
     cy.get('[data-cy=section-articles]')
       .as('section-articles')
       .find('h2')
