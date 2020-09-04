@@ -10,27 +10,18 @@
     </figure>
     <div class="body sm:flex sm:flex-col sm:justify-end">
       <div>
-        <h3 class="text-2xl font-semibold sm:leading-tight sm:text-3xl">
+        <h3 class="font-bold">
           {{ project.title }}
         </h3>
-        <p v-html="project.description" class="mb-4" />
+        <p v-html="project.description" />
       </div>
-      <div class="space-y-1 links">
+      <div class="flex space-x-2 font-mono links">
         <p class="flex items-center space-x-2">
-          <svg-icon class="text-blue-500" icon="external-link" /><a
-            :href="project.url"
-            target="_blank"
-            class="font-semibold link"
-            >{{ url }}</a
-          >
+          <a :href="project.url" target="_blank" class="link">link</a>&nearr;
         </p>
         <p class="flex items-center space-x-2">
-          <svg-icon class="text-blue-500" icon="github" /><a
-            :href="project.github"
-            target="_blank"
-            class="font-semibold link"
-            >{{ github }}</a
-          >
+          <a :href="project.github" target="_blank" class="link">github</a
+          >&nearr;
         </p>
       </div>
     </div>
@@ -48,8 +39,8 @@ export default {
   computed: {
     image() {
       return this.$cloudinary().url(this.project.image, {
-        width: 100,
-        height: 100,
+        width: 50,
+        height: 50,
         crop: 'thumb',
         fetchFormat: 'auto',
         dpr: 2,
@@ -69,23 +60,17 @@ export default {
 article {
   display: grid;
   grid-gap: 1rem;
+
+  /* align-items: center; */
+  grid-template-columns: 50px 1fr;
+  grid-template-areas: 'image body';
 }
 .image {
-  justify-self: end;
+  width: 50px;
+  height: 50px;
+  grid-area: image;
 }
-@screen sm {
-  article {
-    /* align-items: center; */
-    grid-template-columns: 200px 1fr;
-    grid-template-areas: 'image body';
-  }
-  .image {
-    width: 200px;
-    height: 200px;
-    grid-area: image;
-  }
-  .body {
-    grid-area: body;
-  }
+.body {
+  grid-area: body;
 }
 </style>

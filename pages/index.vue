@@ -2,19 +2,17 @@
   <div class="container">
     <div class="home">
       <section class="mb-12 sm:ml-12 md:w-2/3 lg:m-0 lg:w-full">
-        <nuxt-content :document="homeAbout" class="mb-2 text-xl" />
-        <p class="flex items-center justify-end">
-          <a href="#about" class="link">read more</a
-          ><svg-icon icon="arrow-down" />
+        <nuxt-content :document="homeAbout" class="mb-2" />
+        <p class="flex items-center justify-end font-mono">
+          <a href="#about" class="link">read more</a>&nbsp;&darr;
         </p>
       </section>
-      <section class="hidden lg:block"></section>
-      <section class="hidden lg:block"></section>
+
       <!-- List PROJECTS -->
       <section class="section">
         <a name="projects" />
 
-        <h2 class="text-right text-blue-500">
+        <h2>
           Projects
         </h2>
 
@@ -30,7 +28,7 @@
       <!-- List posts -->
       <section class="section">
         <a name="posts" />
-        <h2 class="text-green-500">
+        <h2>
           Articles
         </h2>
 
@@ -52,7 +50,7 @@
       <!-- ABOUT -->
       <section class="section">
         <a name="about" />
-        <h2 class="text-yellow-500">
+        <h2>
           About
         </h2>
 
@@ -68,7 +66,7 @@
         <section class="mb-8 sm:ml-12 sm:mb-12 md:w-2/3 lg:ml-0 lg:w-full">
           <nuxt-content :document="about" class="prose" />
         </section>
-        <social-icons class="justify-end md:ml-12 md:justify-start lg:m-0" />
+        <social-icons class="sm:ml-12 lg:m-0" />
       </section>
     </div>
   </div>
@@ -105,10 +103,10 @@ export default {
 
 <style>
 .section h2 {
-  @apply font-mono text-5xl tracking-wide lowercase  text-right mb-8;
+  @apply font-mono lowercase text-right mb-8 bg-black text-white px-1 inline-block;
 }
 .section {
-  @apply mb-12;
+  @apply mb-16;
 }
 @screen sm {
   .section {
@@ -141,7 +139,7 @@ export default {
 
 .project-grid {
   display: grid;
-  grid-gap: 4rem;
+  grid-gap: 2rem;
 }
 
 /* @screen md {

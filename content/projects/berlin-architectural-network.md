@@ -5,7 +5,7 @@ slug: berlin-architectural-network
 published: true
 tags: ['frontend', 'nuxt']
 canonical_url: true
-description: Website for Berlin's largest architecture community.
+description: A platform for Berlin's largest architecture community.
 image: danrocdev/ban/Linkedin_avatar.png
 order: 1
 intro: Together with architect Maria Bragança, we designed and developed the website for Berlin's largest architecture community.

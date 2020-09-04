@@ -1,12 +1,10 @@
 <template>
-  <section class="font-mono font-semibold text-right text-green-500">
+  <section class="font-mono text-right">
     <span class="sm:hidden">
       {{ this.$dateFns.format(new Date(date), 'd.MM.yy') }}
     </span>
-    <span class="hidden text-xl sm:block">
-      {{ this.$dateFns.format(new Date(date), 'd') }}<br />
-      {{ this.$dateFns.format(new Date(date), 'MM') }}<br />
-      {{ this.$dateFns.format(new Date(date), 'yy') }}<br />
+    <span class="hidden sm:block">
+      {{ this.$dateFns.format(new Date(date), 'd.MM') }}
     </span>
     <!-- <template v-if="post.timeToRead">
       {{ post.timeToRead }} min read.
