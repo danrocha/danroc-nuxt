@@ -27,3 +27,5 @@ techstack:
 url: https://berlinrentslive.herokuapp.com
 github: https://github.com/livecitylab
 ---
+
+Text coming soon!
