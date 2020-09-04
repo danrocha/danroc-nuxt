@@ -1,5 +1,8 @@
 name: main
-on: [push]
+on:
+  push:
+    branches:
+      - candidate
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
