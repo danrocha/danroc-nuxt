@@ -5,16 +5,34 @@
         v-if="project.image"
         :alt="`Cover image for the project ${project.title}`"
         :src="image"
-        class="w-full h-full shadow content-cover"
+        class="shadow sm:shadow-lg sm:w-full sm:h-full content-cover"
       />
     </figure>
-    <div class="body">
-      <h3 class="font-semibold">
-        <nuxt-link :to="project.path" class="link" tag="a">{{
-          project.title
-        }}</nuxt-link>
-      </h3>
-      <p v-html="project.description" />
+    <div class="body sm:flex sm:flex-col sm:justify-end">
+      <div>
+        <h3 class="text-2xl font-semibold sm:leading-tight sm:text-3xl">
+          {{ project.title }}
+        </h3>
+        <p v-html="project.description" class="mb-4" />
+      </div>
+      <div class="space-y-1 links">
+        <p class="flex items-center space-x-2">
+          <svg-icon class="text-blue-500" icon="external-link" /><a
+            :href="project.url"
+            target="_blank"
+            class="font-semibold link"
+            >{{ url }}</a
+          >
+        </p>
+        <p class="flex items-center space-x-2">
+          <svg-icon class="text-blue-500" icon="github" /><a
+            :href="project.github"
+            target="_blank"
+            class="font-semibold link"
+            >{{ github }}</a
+          >
+        </p>
+      </div>
     </div>
   </article>
 </template>
@@ -32,9 +50,16 @@ export default {
       return this.$cloudinary().url(this.project.image, {
         width: 100,
         height: 100,
-        // radius: 'max',
         crop: 'thumb',
+        fetchFormat: 'auto',
+        dpr: 2,
       })
+    },
+    github() {
+      return this.project.github.replace('https://', '')
+    },
+    url() {
+      return this.project.url.replace('https://', '')
     },
   },
 }
@@ -43,17 +68,24 @@ export default {
 <style scoped>
 article {
   display: grid;
-  grid-gap: 2rem;
-  grid-template-columns: 100px 1fr;
-  grid-template-areas: 'image body';
-  align-items: center;
+  grid-gap: 1rem;
 }
 .image {
-  width: 100px;
-  height: 100px;
-  grid-area: image;
+  justify-self: end;
 }
-.body {
-  grid-area: body;
+@screen sm {
+  article {
+    /* align-items: center; */
+    grid-template-columns: 200px 1fr;
+    grid-template-areas: 'image body';
+  }
+  .image {
+    width: 200px;
+    height: 200px;
+    grid-area: image;
+  }
+  .body {
+    grid-area: body;
+  }
 }
 </style>

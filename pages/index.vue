@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <div class="home">
-      <section class="mb-8 sm:ml-12 sm:mb-12 md:w-2/3 lg:m-0 lg:w-full">
-        <nuxt-content :document="homeAbout" class="text-xl" />
+      <section class="mb-12 sm:ml-12 md:w-2/3 lg:m-0 lg:w-full">
+        <nuxt-content :document="homeAbout" class="mb-2 text-xl" />
         <p class="flex items-center justify-end">
           <a href="#about" class="link">read more</a
           ><svg-icon icon="arrow-down" />
@@ -13,10 +13,11 @@
       <!-- List PROJECTS -->
       <section class="section">
         <a name="projects" />
-        <h2 class="blue">
+
+        <h2 class="text-right text-blue-500">
           Projects
         </h2>
-        <div class="h-8" />
+
         <div class="project-grid sm:ml-12 md:w-2/3 lg:w-full lg:ml-0 xl:w-2/3">
           <project-list-item
             v-for="project in projects"
@@ -29,10 +30,10 @@
       <!-- List posts -->
       <section class="section">
         <a name="posts" />
-        <h2 class="green">
+        <h2 class="text-green-500">
           Articles
         </h2>
-        <div class="h-8" />
+
         <div class="post-grid sm:ml-12 md:w-2/3 lg:w-full lg:ml-0 xl:w-2/3">
           <post-list-item v-for="post in posts" :key="post.slug" :post="post" />
         </div>
@@ -51,11 +52,11 @@
       <!-- ABOUT -->
       <section class="section">
         <a name="about" />
-        <h2 class="yellow">
+        <h2 class="text-yellow-500">
           About
         </h2>
-        <div class="h-8" />
-        <p class="mb-8 text-center lg:hidden">
+
+        <p class="mb-8 text-right md:text-left lg:hidden">
           <img
             :src="myPhoto"
             width="200"
@@ -64,12 +65,10 @@
             class="inline-block shadow"
           />
         </p>
-        <section
-          class="mb-8 -ml-8 sm:ml-12 sm:mb-12 md:w-2/3 lg:ml-0 lg:w-full"
-        >
+        <section class="mb-8 sm:ml-12 sm:mb-12 md:w-2/3 lg:ml-0 lg:w-full">
           <nuxt-content :document="about" class="prose" />
         </section>
-        <social-icons class="justify-center lg:justify-start" />
+        <social-icons class="justify-end md:ml-12 md:justify-start lg:m-0" />
       </section>
     </div>
   </div>
@@ -96,6 +95,8 @@ export default {
         height: 200,
         crop: 'thumb',
         effect: 'grayscale',
+        fetchFormat: 'auto',
+        dpr: 2,
       })
     },
   },
@@ -104,9 +105,26 @@ export default {
 
 <style>
 .section h2 {
-  @apply font-mono text-sm font-bold tracking-wide uppercase;
+  @apply font-mono text-5xl tracking-wide lowercase  text-right mb-8;
 }
-.section h2::before {
+.section {
+  @apply mb-12;
+}
+@screen sm {
+  .section {
+    @apply mb-20;
+  }
+  .section h2 {
+    @apply mb-10;
+  }
+}
+@screen lg {
+  .section h2 {
+    @apply text-left;
+  }
+}
+
+/* .section h2::before {
   display: block;
   content: '';
   @apply mb-1 w-32 border-t-2 border-black;
@@ -119,11 +137,11 @@ export default {
 }
 .section h2.yellow::before {
   @apply border-yellow-500;
-}
+} */
 
 .project-grid {
   display: grid;
-  grid-gap: 2rem;
+  grid-gap: 4rem;
 }
 
 /* @screen md {
@@ -134,13 +152,10 @@ export default {
   }
 } */
 
-.home {
-  display: grid;
-  grid-gap: 3rem;
-}
-
 @screen lg {
   .home {
+    display: grid;
+    grid-gap: 3rem;
     grid-template-columns: 30% 1fr;
   }
 }
