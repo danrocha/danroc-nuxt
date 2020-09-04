@@ -3,7 +3,7 @@
     <div class="home">
       <section class="mb-12 sm:ml-12 md:w-2/3 lg:m-0 lg:w-full">
         <nuxt-content :document="homeAbout" class="mb-2" />
-        <p class="flex items-center justify-end font-mono">
+        <p class="font-mono text-right lg:text-left">
           <a href="#about" class="link">read more</a>&nbsp;&darr;
         </p>
       </section>
