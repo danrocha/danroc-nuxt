@@ -1,40 +1,53 @@
 <template>
   <div class="container">
     <div class="home">
-      <section class="mb-12 sm:ml-12 md:w-2/3 lg:m-0 lg:w-full">
-        <nuxt-content :document="homeAbout" class="mb-2" />
+      <section
+        class="mb-12 sm:ml-12 md:w-2/3 lg:m-0 lg:w-full"
+        data-cy="section-intro"
+      >
+        <nuxt-content :document="homeAbout" class="mb-2" data-cy="intro-text" />
         <p class="font-mono text-right lg:text-left">
           <a href="#about" class="link">read more</a>&nbsp;&darr;
         </p>
       </section>
 
       <!-- List PROJECTS -->
-      <section class="section">
+      <section class="section" data-cy="section-projects">
         <a name="projects" />
 
-        <h2>
-          Projects
-        </h2>
+        <h2>Projects</h2>
 
-        <div class="project-grid sm:ml-12 md:w-2/3 lg:w-full lg:ml-0 xl:w-2/3">
-          <project-list-item
+        <ul
+          class="project-grid sm:ml-12 md:w-2/3 lg:w-full lg:ml-0 xl:w-2/3"
+          data-cy="project-list"
+        >
+          <li
             v-for="project in projects"
             :key="project.slug"
-            :project="project"
-          />
-        </div>
+            data-cy="project-list-item"
+          >
+            <project-list-item :project="project" />
+          </li>
+        </ul>
       </section>
       <section></section>
       <!-- List posts -->
-      <section class="section">
+      <section class="section" data-cy="section-articles">
         <a name="posts" />
-        <h2>
-          Articles
-        </h2>
+        <h2>Articles</h2>
 
-        <div class="post-grid sm:ml-12 md:w-2/3 lg:w-full lg:ml-0 xl:w-2/3">
-          <post-list-item v-for="post in posts" :key="post.slug" :post="post" />
-        </div>
+        <ul
+          class="post-grid sm:ml-12 md:w-2/3 lg:w-full lg:ml-0 xl:w-2/3"
+          data-cy="article-list"
+        >
+          <li
+            v-for="post in posts"
+            :key="post.slug"
+            data-cy="article-list-item"
+          >
+            <post-list-item :post="post" />
+          </li>
+        </ul>
       </section>
       <section>
         <p class="hidden mb-8 text-right lg:block">
@@ -48,11 +61,9 @@
         </p>
       </section>
       <!-- ABOUT -->
-      <section class="section">
+      <section class="section" data-cy="section-about">
         <a name="about" />
-        <h2>
-          About
-        </h2>
+        <h2>About</h2>
 
         <p class="mb-8 text-right md:text-left lg:hidden">
           <img
