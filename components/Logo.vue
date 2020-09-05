@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link class="font-mono text-pink-500 NuxtLogo" to="/">
+  <nuxt-link class="font-mono text-pink-500 NuxtLogo" to="/" data-cy="logo">
     &larr; danroc.dev
   </nuxt-link>
 </template>
