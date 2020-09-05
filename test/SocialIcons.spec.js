@@ -1,9 +1,9 @@
 import { mount, RouterLinkStub } from '@vue/test-utils'
-import Logo from '../components/Logo' // ../my-component.vue file
+import SocialIcons from '../components/SocialIcons'
 
-describe('Logo', () => {
+describe('SocialIcons', () => {
   it('Render correctly', () => {
-    const wrapper = mount(Logo, {
+    const wrapper = mount(SocialIcons, {
       stubs: {
         NuxtLink: RouterLinkStub,
       },

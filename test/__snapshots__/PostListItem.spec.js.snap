@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostListItem Render correctly 1`] = `
+<article
+  class="mb-8"
+>
+  <div
+    class="body"
+  >
+    <h3
+      class="font-bold leading-tight"
+    >
+      <a
+        class="link"
+      >
+        Redesigning Awarded
+      </a>
+    </h3>
+     
+    <p>
+      Awarded needs a redesign
+    </p>
+     
+    <span
+      class="hidden sm:inline-block"
+    >
+      <a
+        class="link"
+      >
+        read
+      </a>
+       →
+    </span>
+  </div>
+   
+  <div
+    class="flex font-mono meta sm:block"
+  >
+    <post-meta-stub
+      date="2020-02-26T00:00:00.000Z"
+    />
+    <span
+      class="sm:hidden"
+    >
+       / 
+      
+      <a
+        class="link"
+      >
+        read
+      </a>
+       →
+    </span>
+  </div>
+</article>
+`;

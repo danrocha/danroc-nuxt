@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Logo Render correctly 1`] = `
+<a
+  class="font-mono text-pink-500 NuxtLogo"
+>
+  
+  ← danroc.dev
+
+</a>
+`;

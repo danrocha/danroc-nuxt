@@ -1,9 +1,9 @@
 import { mount, RouterLinkStub } from '@vue/test-utils'
-import Logo from '../components/Logo' // ../my-component.vue file
+import BaseFooter from '../components/BaseFooter' // ../my-component.vue file
 
-describe('Logo', () => {
+describe('BaseFooter', () => {
   it('Render correctly', () => {
-    const wrapper = mount(Logo, {
+    const wrapper = mount(BaseFooter, {
       stubs: {
         NuxtLink: RouterLinkStub,
       },
