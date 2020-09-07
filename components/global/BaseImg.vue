@@ -7,8 +7,10 @@
   </figure>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent, useContext } from '@nuxtjs/composition-api'
+
+export default defineComponent({
   props: {
     id: {
       type: String,
@@ -27,23 +29,24 @@ export default {
       default: true,
     },
   },
-  computed: {
-    imageId() {
-      if (this.id.includes('danrocdev/')) return this.id
-      return `danrocdev/${this.id}`
-    },
-    src() {
-      return this.$cloudinary().url(this.imageId, {
-        width: '700',
-        crop: 'scale',
-        fetchFormat: 'auto',
-        dpr: 2,
-      })
-    },
-    style() {
-      if (!this.shadow) return 'box-shadow: none !important;'
-      return ''
-    },
+  setup({ id, shadow }) {
+    const {
+      app: { $cloudinary },
+    } = useContext()
+
+    const imageId: String = id.includes('danrocdev/') ? id : `danrocdev/${id}`
+    const src: String = $cloudinary().url(imageId, {
+      width: '700',
+      crop: 'scale',
+      fetchFormat: 'auto',
+      dpr: 2,
+    })
+    const style: String = shadow ? '' : 'box-shadow: none !important;'
+
+    return {
+      src,
+      style,
+    }
   },
-}
+})
 </script>

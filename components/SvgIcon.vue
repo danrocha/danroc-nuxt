@@ -4,8 +4,10 @@
   </svg>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from '@nuxtjs/composition-api'
+
+export default defineComponent({
   name: 'SvgIcon',
   props: {
     icon: {
@@ -17,7 +19,7 @@ export default {
       default: false,
     },
   },
-}
+})
 </script>
 
 <style>

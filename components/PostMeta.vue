@@ -9,13 +9,16 @@
   </section>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from '@nuxtjs/composition-api'
+
+export default defineComponent({
+  name: 'PostMeta',
   props: {
     date: {
       type: String,
       required: true,
     },
   },
-}
+})
 </script>
