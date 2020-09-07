@@ -1,8 +1,10 @@
 <template>
-  <svg width="0" height="0" style="display: none" v-html="$options.svgSprite" />
+  <svg width="0" height="0" style="display: none" v-html="svgSprite" />
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from '@nuxtjs/composition-api'
+
 const svgContext = require.context(
   '!svg-inline-loader?' +
     'removeTags=true' + // remove title tags, etc.
@@ -12,7 +14,7 @@ const svgContext = require.context(
   true, // search subdirectories
   /\w+\.svg$/i // only include SVG files
 )
-const symbols = svgContext.keys().map((path) => {
+const symbols: String[] = svgContext.keys().map((path) => {
   // get SVG file content
   const content = svgContext(path)
   // extract icon id from filename
@@ -22,8 +24,13 @@ const symbols = svgContext.keys().map((path) => {
     .replace('<svg', `<symbol id="${id}"`)
     .replace('svg>', 'symbol>')
 })
-export default {
+export default defineComponent({
   name: 'SvgSprite',
-  svgSprite: symbols.join('\n'), // concatenate all symbols into $options.svgSprite
-}
+  setup() {
+    const svgSprite: String = symbols.join('\n') // concatenate all symbols into $options.svgSprite
+    return {
+      svgSprite,
+    }
+  },
+})
 </script>

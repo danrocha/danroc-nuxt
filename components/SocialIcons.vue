@@ -1,5 +1,5 @@
 <template>
-  <ul class="flex space-x-2 text-lg text-gray-800">
+  <ul class="flex space-x-2 text-lg text-teal-500">
     <li>
       <a href="//twitter.com/danrocc" target="_blank" rel="nofollow"
         ><svg-icon icon="twitter"
@@ -17,3 +17,9 @@
     </li>
   </ul>
 </template>
+<script lang="ts">
+import { defineComponent } from '@nuxtjs/composition-api'
+export default defineComponent({
+  name: 'SocialIcons',
+})
+</script>

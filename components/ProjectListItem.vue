@@ -1,21 +1,13 @@
 <template>
   <article>
-    <figure class="image">
-      <img
-        v-if="project.image"
-        :alt="`Cover image for the project ${project.title}`"
-        :src="image"
-        class="shadow sm:shadow-lg sm:w-full sm:h-full content-cover"
-      />
-    </figure>
     <div class="body sm:flex sm:flex-col sm:justify-end">
       <div>
-        <h3 class="font-bold">
+        <h3 class="inline-block font-mono font-bold">
           {{ project.title }}
         </h3>
-        <p v-html="project.description" />
+        <p class="inline-block" v-html="project.description" />
       </div>
-      <div class="flex space-x-2 font-mono links">
+      <div class="flex space-x-2 font-mono text-sm links">
         <p class="flex items-center space-x-2">
           <a :href="project.url" target="_blank" class="link">link</a>&nearr;
         </p>
@@ -28,49 +20,44 @@
   </article>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent, useContext } from '@nuxtjs/composition-api'
+
+interface Project {
+  image: String
+  title: String
+  description: String
+  url: String
+  github: String
+}
+
+export default defineComponent({
+  name: 'ProjectListItem',
   props: {
     project: {
-      type: Object,
+      type: Object as () => Project,
       required: true,
     },
   },
-  computed: {
-    image() {
-      return this.$cloudinary().url(this.project.image, {
-        width: 50,
-        height: 50,
-        crop: 'thumb',
-        fetchFormat: 'auto',
-        dpr: 2,
-      })
-    },
-    github() {
-      return this.project.github.replace('https://', '')
-    },
-    url() {
-      return this.project.url.replace('https://', '')
-    },
+  setup({ project }) {
+    const {
+      app: { $cloudinary },
+    } = useContext()
+    const image: String = $cloudinary().url(project.image, {
+      width: 50,
+      height: 50,
+      crop: 'thumb',
+      fetchFormat: 'auto',
+      dpr: 2,
+    })
+
+    const github: String = project.github.replace('https://', '')
+    const url: String = project.github.replace('https://', '')
+    return {
+      image,
+      github,
+      url,
+    }
   },
-}
+})
 </script>
-
-<style scoped>
-article {
-  display: grid;
-  grid-gap: 1rem;
-
-  /* align-items: center; */
-  grid-template-columns: 50px 1fr;
-  grid-template-areas: 'image body';
-}
-.image {
-  width: 50px;
-  height: 50px;
-  grid-area: image;
-}
-.body {
-  grid-area: body;
-}
-</style>

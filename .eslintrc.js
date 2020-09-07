@@ -3,20 +3,25 @@ module.exports = {
   env: {
     browser: true,
     node: true,
+    jest: true,
     'cypress/globals': true,
   },
-  parserOptions: {
-    parser: 'babel-eslint',
-  },
+  // parserOptions: {
+  // parser: 'babel-eslint',
+  // },
   extends: [
     '@nuxtjs',
+    '@nuxtjs/eslint-config-typescript',
     'prettier',
     'prettier/vue',
     'plugin:prettier/recommended',
     'plugin:nuxt/recommended',
-    'plugin:cypress/recommended',
   ],
   plugins: ['prettier', 'cypress'],
   // add your custom rules here
-  rules: {},
+  rules: {
+    '@typescript-eslint/no-empty-interface': 1,
+    // https://github.com/typescript-eslint/typescript-eslint/issues/103
+    '@typescript-eslint/no-parameter-properties': 0,
+  },
 }

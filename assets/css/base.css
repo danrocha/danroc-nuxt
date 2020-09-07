@@ -1,11 +1,10 @@
 body,
 html {
-  @apply p-2 text-gray-800;
+  @apply p-2 font-light text-gray-200 bg-gray-900;
 }
 
 a.link {
-  @apply underline;
-  @apply text-black;
+  @apply text-teal-200 underline;
 
   /* 
   box-shadow: inset 0 -0.1em 0 #dae1e7;

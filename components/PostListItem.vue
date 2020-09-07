@@ -1,18 +1,18 @@
 <template>
   <article class="mb-8">
     <div class="body">
-      <h3 class="font-bold leading-tight">
+      <h3 class="font-mono font-bold leading-tight">
         <nuxt-link :to="post.path" class="link" tag="a">{{
           post.title
         }}</nuxt-link>
       </h3>
       <p class="" v-html="post.description" />
-      <span class="hidden sm:inline-block"
+      <span class="hidden text-sm sm:inline-block"
         ><nuxt-link :to="post.path" class="link" tag="a">read</nuxt-link
         >&nbsp;&rarr;</span
       >
     </div>
-    <div class="flex font-mono meta sm:block">
+    <div class="flex font-mono text-sm meta sm:block">
       <post-meta :date="post.date" /><span class="sm:hidden"
         >&nbsp;/&nbsp;
         <nuxt-link :to="post.path" class="link" tag="a">read</nuxt-link
@@ -22,16 +22,26 @@
   </article>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from '@nuxtjs/composition-api'
+
+interface Post {
+  path: String
+  description: String
+  date: String
+  title: String
+}
+export default defineComponent({
+  name: 'PostListItem',
   props: {
     post: {
-      type: Object,
+      type: Object as () => Post,
       required: true,
     },
   },
-}
+})
 </script>
+
 <style scoped>
 article {
   display: grid;
@@ -40,14 +50,13 @@ article {
 
 @screen sm {
   article {
-    grid-template-columns: 50px 1fr;
+    grid-template-columns: auto 1fr;
     grid-template-areas: 'image body';
     align-items: top;
     grid-gap: 1rem;
   }
   .meta {
     grid-area: image;
-    width: 50px;
   }
   .body {
     grid-area: body;

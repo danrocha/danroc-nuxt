@@ -1,5 +1,5 @@
 const GFONTS =
-  'https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;600;700&family=Fira+Mono:wght@400;700'
+  'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&family=Source+Code+Pro:wght@400;700'
 
 export default {
   /*
@@ -49,7 +49,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['./node_modules/pattern.css/dist/pattern.css'],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
@@ -64,6 +64,8 @@ export default {
    ** Nuxt.js dev-modules
    */
   buildModules: [
+    '@nuxtjs/composition-api',
+    '@nuxt/typescript-build',
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     // Doc: https://github.com/nuxt-community/stylelint-module
@@ -77,6 +79,14 @@ export default {
       },
     ],
   ],
+  typescript: {
+    typeCheck: {
+      // https://typescript.nuxtjs.org/guide/lint.html#runtime-lint
+      eslint: {
+        files: './**/*.{ts,js,vue}',
+      },
+    },
+  },
   /*
    ** Nuxt.js modules
    */

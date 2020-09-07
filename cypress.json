@@ -1,6 +1,3 @@
 {
-  "baseUrl": "http://localhost:3000",
-  "experimentalComponentTesting": true,
-  "componentFolder": "components",
-  "ignoreTestFiles": "*.vue"
+  "baseUrl": "http://localhost:3000"
 }

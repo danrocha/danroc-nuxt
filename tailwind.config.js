@@ -7,32 +7,37 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
+  future: {
+    removeDeprecatedGapUtilities: true,
+    purgeLayersByDefault: true,
+  },
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Fira Sans', ...defaultTheme.fontFamily.sans],
-        mono: ['Fira Mono', ...defaultTheme.fontFamily.mono],
+        sans: ['Source Sans Pro', ...defaultTheme.fontFamily.sans],
+        mono: ['Source Code Pro', ...defaultTheme.fontFamily.mono],
       },
     },
     typography: (theme) => ({
       default: {
         css: [
           {
-            'h2, h3': {
-              fontWeight: 400,
+            color: theme('colors.gray.200'),
+            strong: {
+              color: theme('colors.gray.200'),
             },
-            'h2:before': {
-              display: 'block',
-              content: '""',
-              width: theme('width.24'),
-              marginBottom: theme('margin.2'),
-              borderTopWidth: theme('borderWidth.2'),
-              borderTopColor: theme('colors.blue.400'),
+            'h2, h3, h1': {
+              fontWeight: 700,
+              fontFamily: theme('fontFamily.mono'),
+              color: theme('colors.teal.200'),
+            },
+            'a, code': {
+              color: theme('colors.teal.200'),
             },
             'ul > li::before': {
               content: '"×"',
               position: 'absolute',
-              color: theme('colors.pink.500'),
+              color: theme('colors.teal.500'),
               fontWeight: theme('fontWeight.bold'),
               backgroundColor: null,
               borderRadius: null,
@@ -48,63 +53,6 @@ module.exports = {
             },
             img: {
               boxShadow: theme('boxShadow.md'),
-            },
-          },
-        ],
-      },
-      sm: {
-        css: [
-          {
-            'h2, h3': {
-              fontWeight: 400,
-            },
-            'h2:before': {
-              display: 'block',
-              content: '""',
-              width: theme('width.24'),
-              marginBottom: theme('margin.2'),
-              borderTopWidth: theme('borderWidth.2'),
-              borderTopColor: theme('colors.blue.400'),
-            },
-            'ul > li::before': {
-              content: '"×"',
-              position: 'absolute',
-              color: theme('colors.pink.500'),
-              fontWeight: theme('fontWeight.bold'),
-              backgroundColor: null,
-              borderRadius: null,
-              width: null,
-              height: null,
-              top: null,
-            },
-            'ul > li > p': {
-              marginLeft: 0,
-            },
-            'p, h3, ul, ol': {
-              marginLeft: theme('margin.8'),
-            },
-          },
-        ],
-      },
-      md: {
-        css: [
-          {
-            'p, h3, ul, ol': {
-              marginLeft: theme('margin.12'),
-            },
-          },
-        ],
-      },
-      lg: {
-        css: [
-          {
-            'p, h3, ul, ol': {
-              marginLeft: theme('margin.12'),
-            },
-            'ul > li::before': {
-              width: null,
-              height: null,
-              top: null,
             },
           },
         ],
