@@ -2,7 +2,7 @@
   <div class="relative max-w-lg lg:ml-12 lg:mt-12 xl:ml-20 xl:mt-20">
     <svg-sprite />
     <div
-      class="absolute z-0 w-full h-24 mt-3 ml-8 text-teal-900 pattern-dots-sm"
+      class="absolute z-0 w-full h-24 mt-3 ml-8 text-teal-900 pattern-header pattern-dots-sm"
     />
     <header class="relative z-10 mb-12">
       <template v-if="$route.path === '/'">
@@ -38,6 +38,21 @@ header {
 @screen sm {
   header {
     grid-template-columns: auto 1fr auto;
+  }
+}
+
+.pattern-header {
+  animation: 0.3s appear ease-in;
+}
+
+@keyframes appear {
+  0% {
+    transform: scaleX(0);
+    transform-origin: top left;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: top left;
   }
 }
 </style>
