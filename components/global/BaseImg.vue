@@ -1,7 +1,7 @@
 <template>
   <figure class="w-full">
     <img :src="src" :alt="alt" :style="style" loading="lazy" class="w-full" />
-    <figcaption class="text-xs italic -pt-2" v-if="legend">
+    <figcaption v-if="legend" class="text-xs italic -pt-2">
       {{ legend }}
     </figcaption>
   </figure>
