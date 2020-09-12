@@ -1,7 +1,9 @@
-I'm **Daniel da Rocha**, a **Brazilian** self-taught **front end developer** and formally-educated **architect**, based in **Berlin**.
+I'm **Daniel**, a **Brazilian** self-taught **front end developer** and formally-educated **architect**, based in **Berlin**.
 
-In the past 4+ years, as I learned and built a lot of side projects, I became comfortable working both in the front end and in the back end. My main tools include **JavaScript**, **VueJS**, HTML5, CSS3, **Python**, **NuxtJS**, **GraphQL**, **SQL**, Figma, Adobe CC, git/Github, among others. Also, I feel I can pick up and learn anything I need to get the job done.
+Son of a pair of computer scientists, I've been around computers my whole life. We always had the latest and greatest back then: XT with a red screen! CD-ROOM, wooow. Windows 98! It wasn't long before I dived into coding: always accompanied either by a "The [insert language name here] Bible" or some O'Reilly guide, I went through PHP, MySQL, Actionscript (Flash yeah!), lots of HTML and some CSS back then. I was the first to have a website and even got a little "famous" blog and podcast back when you had to download the MP3 with iTunes and sync it with your iPod.
 
-Also, in the past 10+ years, through my career in architecture, I mastered the ability to tackle **complex projects**, to devise simple and elegant solutions, and to deal with **diverse and complex team** configurations; valuable soft skills in any industry.
+Somewhere along the way, I fell in love with Architecture and decided it was to become my profession. After all, "I'll build real things, real buildings, not just online stuff." For a long time I loved it: I worked my ass off and did pretty well in my career. And even during it all, I was always coding. It started with Maya 3D and Python scripting back in school (generative design!), followed by Grasshopper, Rhino, and more Python scripting, in practice.
 
-I am always open to new opportunities and collaborations.
+In my free time, I would go deep into modern web development, going crazy with all the possibilities at my fingertips. I felt I could build anything I wanted, fast, have people using it, learn from it, and iterate. This cycle is non-existent in architecture. A project you design today might take years to be ready. By then you'll have moved on, missing out on learning what was actually working or not for your end-user.
+
+I want more of the never ending feedback and learning cycle in my life. I want to have a stronger connection with people who are interacting with my work. That is why I am switching careers. From years in architecture, I'll bring all I learned into tech. And keep on building. Because "online stuff" turned out to be quite important, after all.
