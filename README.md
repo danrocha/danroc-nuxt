@@ -12,13 +12,13 @@
 
 ## Built With
 
+- [TypeScript](https://nuxtjs.org)
 - [Nuxt.js](https://nuxtjs.org) - Vue.js framework
+- [Nuxt Content](https://content.nuxtjs.org/) + Markdown - Content
 - [Tailwind CSS](https://tailwindcss.com/) - CSS framework
-- [XState](https://xstate.js.org/) - state management
-- [Apollo GraphQL](https://www.apollographql.com/) - pulling from a [Hasura](https://hasura.io/) GraphQL API
 - [Jest](https://jestjs.io/) - unit testing
 - [Cypress.io](https://www.cypress.io/) - integration tests
-- [Travis CI](https://travis-ci.org/) - CI/CD
+- [Github Actions](https://github.com/features/actions) - CI/CD
 
 ## Hosted on
 
@@ -41,7 +41,7 @@ $ npm run start
 $ npm run generate
 
 # run unit tests
-$ npm run test
+$ npm run test:unit
 
 # run integration tests
 $ npm run cy:open
@@ -63,7 +63,7 @@ I follow the "[3-flow](https://www.nomachetejuggling.com/2017/04/09/a-different-
 
 ## Author
 
-- **Daniel da Rocha** - _Creator and Full-stack Developer_ - [danrocha](https://github.com/danrocha)
+- **Daniel da Rocha** - Creator and Full-stack Developer - [danrocha](https://github.com/danrocha)
 
 ## License
 

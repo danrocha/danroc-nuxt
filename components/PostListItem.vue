@@ -6,6 +6,7 @@
           post.title
         }}</nuxt-link>
       </h3>
+      <!-- eslint-disable-next-line vue/no-v-html -->
       <p class="" v-html="post.description" />
       <span class="hidden text-sm sm:inline-block"
         ><nuxt-link :to="post.path" class="link" tag="a">read</nuxt-link
