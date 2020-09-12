@@ -5,6 +5,7 @@
         <h3 class="inline-block font-mono font-bold">
           {{ project.title }}
         </h3>
+        <!-- eslint-disable-next-line vue/no-v-html -->
         <p class="inline-block" v-html="project.description" />
       </div>
       <div class="flex space-x-2 font-mono text-sm links">
