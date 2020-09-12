@@ -2,7 +2,11 @@
   <div>
     <div class="relative home">
       <section class="mb-12 sm:ml-12" data-cy="section-intro">
-        <nuxt-content :document="homeAbout" class="mb-2" data-cy="intro-text" />
+        <NuxtContent
+          :document="homeAbout"
+          class="mb-2 prose"
+          data-cy="intro-text"
+        />
         <p class="font-mono text-sm text-right lg:text-left">
           <a href="#about" class="link">read more</a>&darr;
         </p>
@@ -18,7 +22,7 @@
             :key="project.slug"
             data-cy="project-list-item"
           >
-            <project-list-item :project="project" />
+            <ProjectListItem :project="project" />
           </li>
         </ul>
       </section>
@@ -31,7 +35,7 @@
             :key="post.slug"
             data-cy="article-list-item"
           >
-            <post-list-item :post="post" />
+            <PostListItem :post="post" />
           </li>
         </ul>
       </section>
@@ -52,9 +56,9 @@
           </div>
         </div>
         <section class="mb-8 sm:ml-12 sm:mb-12">
-          <nuxt-content :document="about" class="prose" />
+          <NuxtContent :document="about" class="prose" />
         </section>
-        <social-icons class="sm:ml-12" />
+        <SocialIcons class="sm:ml-12" />
       </section>
     </div>
   </div>
