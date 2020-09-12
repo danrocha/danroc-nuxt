@@ -27,7 +27,7 @@ describe('Home', () => {
         .find('p')
         .should(($p) => {
           const text = $p.text()
-          expect(text).to.include('Daniel da Rocha')
+          expect(text).to.include('Daniel')
         })
     })
   })
