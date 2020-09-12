@@ -23,3 +23,28 @@ export default defineComponent({
   name: 'SocialIcons',
 })
 </script>
+<style scoped>
+li {
+  animation: 0.1s scaledown ease-in 1 normal forwards;
+}
+li:hover {
+  animation: 0.1s scaleup ease-out 1 normal forwards;
+}
+
+@keyframes scaleup {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.5);
+  }
+}
+@keyframes scaledown {
+  from {
+    transform: scale(1.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+</style>
