@@ -23,13 +23,23 @@ module.exports = {
         css: [
           {
             color: theme('colors.gray.200'),
+            blockquote: {
+              color: theme('colors.gray.200'),
+              borderLeftColor: theme('colors.teal.500'),
+            },
             strong: {
               color: theme('colors.gray.200'),
             },
             'h2, h3, h1': {
-              fontWeight: 700,
               fontFamily: theme('fontFamily.mono'),
-              color: theme('colors.teal.200'),
+            },
+            h2: {
+              fontWeight: 700,
+              color: theme('colors.teal.300'),
+            },
+            h3: {
+              fontWeight: 400,
+              color: theme('colors.teal.500'),
             },
             'a, code': {
               color: theme('colors.teal.200'),
@@ -51,8 +61,22 @@ module.exports = {
             'p, h3, ul, ol': {
               marginLeft: theme('margin.0'),
             },
-            img: {
-              boxShadow: theme('boxShadow.md'),
+          },
+        ],
+      },
+      sm: {
+        css: [
+          {
+            'ul > li::before': {
+              content: '"×"',
+              position: 'absolute',
+              color: theme('colors.teal.500'),
+              fontWeight: theme('fontWeight.bold'),
+              backgroundColor: null,
+              borderRadius: null,
+              width: null,
+              height: null,
+              top: null,
             },
           },
         ],
