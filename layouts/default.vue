@@ -9,7 +9,7 @@
         <logo />
       </template>
       <template v-else>
-        <nuxt-link to="/">
+        <nuxt-link to="/" class="-ml-4">
           <span v-if="$route.path !== '/'" class="text-teal-500">&larr;</span>
           <logo />
         </nuxt-link>
