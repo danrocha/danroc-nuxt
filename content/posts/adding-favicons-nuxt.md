@@ -43,8 +43,7 @@ modules: [
 
 I then use Figma to draw a 512x512 icon, export it as `icon.png` and place it inside the `static` folder in my Nuxt project.
 
-![Icon design in Figma](https://res.cloudinary.com/danroc/image/upload/dpr_auto,f_auto/danrocdev/favicon-figma.png)
-
-![Icon inside static folder](https://res.cloudinary.com/danroc/image/upload/dpr_auto,f_auto/danrocdev/favicon-dir.png)
+<base-img id="danrocdev/favicon-figma.png"  alt="Screenshot the icon design on Figma" legend="Icon design in Figma"></base-img>
+<base-img id="danrocdev/favicon-dir.png"  alt="Screenshot the Icon inside static folder" legend="Icon inside static folder"></base-img>
 
 And that's it. Once deployed, your favicon will be generated automatically.
