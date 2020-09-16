@@ -33,13 +33,13 @@ export default defineComponent({
     const {
       app: { $cloudinary },
     } = useContext()
-
-    const imageId: String = id.includes('danrocdev/') ? id : `danrocdev/${id}`
-    const src: String = $cloudinary().url(imageId, {
+    const imgFormat: string | undefined = id.split('.').pop()
+    const imageId: string = id.includes('danrocdev/') ? id : `danrocdev/${id}`
+    const src: string = $cloudinary().url(imageId, {
       width: '700',
       crop: 'scale',
       fetchFormat: 'auto',
-      dpr: 2,
+      dpr: imgFormat === 'gif' ? 1 : 2,
     })
     const style: String = shadow ? '' : 'box-shadow: none !important;'
 
