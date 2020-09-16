@@ -1,58 +1,40 @@
 <template>
-  <article class="lg:pl-8">
-    <header class="mb-8 sm:items-center sm:space-x-4 sm:flex">
-      <p class="mb-4 text-right sm:m-0">
-        <img
-          v-if="project.image"
-          alt="Cover image"
-          :src="coverImage"
-          class="inline-block shadow"
-        />
-      </p>
-      <div class="prose sm:prose-sm md:prose-md lg:prose-lg">
-        <h1>
+  <article>
+    <header class="mb-12">
+      <div class="mb-2">
+        <h1 class="font-mono text-4xl font-bold leading-tight text-teal-200">
           {{ project.title }}
         </h1>
       </div>
+      <section class="flex space-x-2 font-mono links" data-cy="links">
+        <p class="flex items-center space-x-2">
+          <a :href="project.url" target="_blank" class="link">link</a>&nearr;
+        </p>
+        <p class="flex items-center space-x-2">
+          <a :href="project.github" target="_blank" class="link">github</a
+          >&nearr;
+        </p>
+      </section>
     </header>
 
     <main>
-      <!-- <section class="intro">
-        <div v-html="project.intro" class="text-gray-900" />
-      </section> -->
-
-      <section class="links">
-        <p class="flex items-center space-x-2">
-          <svg-icon class="text-gray-500" icon="external-link" /><a
-            :href="project.url"
-            target="_blank"
-            class="font-semibold link"
-            >{{ url }}</a
-          >
-        </p>
-        <p class="flex items-center space-x-2">
-          <svg-icon class="text-gray-500" icon="github" /><a
-            :href="project.github"
-            target="_blank"
-            class="font-semibold link"
-            >{{ github }}</a
-          >
-        </p>
+      <section class="prose intro sm:prose-sm">
+        <div v-html="project.intro" />
       </section>
 
-      <section class="prose body sm:prose-sm md:prose-md lg:prose-lg">
+      <section class="prose body sm:prose-sm">
         <nuxt-content :document="project" />
       </section>
       <section class="techstack">
-        <div class="prose sm:prose-sm md:prose-md lg:hidden">
+        <div class="prose sm:prose-sm">
           <h2>Tech Stack</h2>
         </div>
-        <div class="h-8 lg:h-12" />
-        <ul class="flex flex-wrap sm:pl-8 md:pl-12 lg:flex-col lg:items-start">
+        <div class="h-8" />
+        <ul class="flex flex-wrap">
           <li
             v-for="tech in project.techstack"
             :key="tech"
-            class="flex items-center p-2 mb-2 mr-2 space-x-2 font-mono text-gray-600 border rounded shadow"
+            class="flex items-center p-2 mb-2 mr-2 space-x-2 font-mono text-sm text-teal-200 bg-teal-900 border border-teal-500 rounded"
           >
             <svg-icon :icon="tech" /><span>{{ tech }}</span>
           </li>
@@ -65,55 +47,40 @@
   </article>
 </template>
 
-<script>
-export default {
-  layout: 'post',
-  async asyncData({ $content, params, $cloudinary }) {
-    const project = await $content('projects', params.slug).fetch()
-    const coverImage = $cloudinary().url(project.image, {
-      width: 100,
-      height: 100,
-      crop: 'thumb',
+<script lang="ts">
+import { Project } from '@/components/ProjectListItem.vue'
+import {
+  defineComponent,
+  // useAsync,
+  useContext,
+  ref,
+  useFetch,
+} from '@nuxtjs/composition-api'
+
+export default defineComponent({
+  setup() {
+    const {
+      route,
+      app: { $content },
+    } = useContext()
+    const slug: string = route.value.path.replace('/projects/', '')
+    const github = ref('')
+    const url = ref('')
+    const project = ref<Project>()
+    const { fetch } = useFetch(async () => {
+      project.value = await $content('projects', slug).fetch()
+      if (project.value) {
+        github.value = project.value.github.replace('https://', '')
+        url.value = project.value.url.replace('https://', '')
+      }
     })
-    const github = project.github.replace('https://', '')
-    const url = project.url.replace('https://', '')
+    fetch()
+
     return {
       project,
-      coverImage,
       github,
       url,
     }
   },
-}
+})
 </script>
-<style scoped>
-/* main {
-  display: grid;
-  grid-gap: 2rem;
-} */
-
-@screen lg {
-  main {
-    display: grid;
-    grid-gap: 2rem;
-    grid-template-columns: auto 1fr;
-    grid-template-areas:
-      'intro .'
-      'links .'
-      'body techstack';
-  }
-  .intro {
-    grid-area: intro;
-  }
-  .links {
-    grid-area: links;
-  }
-  .body {
-    grid-area: body;
-  }
-  .techstack {
-    grid-area: techstack;
-    align-self: end;
-  }
-}
-</style>

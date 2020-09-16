@@ -1,16 +1,18 @@
 <template>
-  <article class="prose lg:ml-8">
+  <article>
     <template v-if="post">
-      <header class="mb-8">
-        <h1 class="font-mono font-bold text-teal-200">
+      <header class="mb-12">
+        <h1
+          class="mb-4 font-mono text-4xl font-bold leading-tight text-teal-200"
+        >
           {{ post.title }}
         </h1>
-        <div class="flex -mt-4 space-x-2 font-mono text-sm">
+        <div class="flex space-x-2 font-mono text-sm">
           &mdash;&nbsp;<post-meta :date="post.date" />
         </div>
       </header>
       <main>
-        <nuxt-content class="mx-auto" :document="post" />
+        <nuxt-content :document="post" class="prose sm:prose-sm" />
       </main>
     </template>
     <footer class="mb-8">
@@ -21,18 +23,26 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, useAsync, useContext } from '@nuxtjs/composition-api'
+import { Post } from '@/components/PostListItem.vue'
+import {
+  defineComponent,
+  ref,
+  useFetch,
+  useContext,
+} from '@nuxtjs/composition-api'
 
 export default defineComponent({
-  // layout: 'post',
   setup() {
     const {
       route,
       app: { $content },
     } = useContext()
     const slug: String = route.value.path.replace('/posts/', '')
-    const post = useAsync(async () => await $content('posts', slug).fetch())
-
+    const post = ref<Post>()
+    const { fetch } = useFetch(async () => {
+      post.value = await $content('posts', slug).fetch()
+    })
+    fetch()
     return {
       post,
     }

@@ -8,37 +8,14 @@
           data-cy="intro-text"
         />
         <p class="font-mono text-sm text-right lg:text-left">
-          <a href="#about" class="link">read more</a>&darr;
+          <a href="#about" class="link">read more</a>&nbsp;&darr;
         </p>
       </section>
 
       <!-- List PROJECTS -->
-      <section class="section" data-cy="section-projects">
-        <SectionHeader name="projects" />
-
-        <ul class="project-grid sm:ml-12" data-cy="project-list">
-          <li
-            v-for="project in projects"
-            :key="project.slug"
-            data-cy="project-list-item"
-          >
-            <ProjectListItem :project="project" />
-          </li>
-        </ul>
-      </section>
+      <ProjectList class="section" />
       <!-- List posts -->
-      <section class="section" data-cy="section-articles">
-        <SectionHeader name="articles" />
-        <ul class="post-grid sm:ml-12" data-cy="article-list">
-          <li
-            v-for="post in posts"
-            :key="post.slug"
-            data-cy="article-list-item"
-          >
-            <PostListItem :post="post" />
-          </li>
-        </ul>
-      </section>
+      <PostList class="section" />
 
       <!-- ABOUT -->
       <section class="section" data-cy="section-about">
@@ -51,8 +28,7 @@
               width="200"
               height="200"
               alt="Avatar from Daniel da Rocha"
-              class="inline-block shadow"
-              data-aos="fade-up"
+              class="inline-block"
             />
           </div>
         </div>
@@ -73,8 +49,6 @@ export default defineComponent({
     const {
       app: { $cloudinary, $content },
     } = useContext()
-    const posts = useAsync(async () => await $content('posts').fetch())
-    const projects = useAsync(async () => await $content('projects').fetch())
     const homeAbout = useAsync(async () => await $content('homeAbout').fetch())
     const about = useAsync(async () => await $content('about').fetch())
     const myPhoto: String = $cloudinary().url(`danrocdev/danieldarocha.jpg`, {
@@ -86,10 +60,8 @@ export default defineComponent({
       dpr: 2,
     })
     return {
-      posts,
       about,
       homeAbout,
-      projects,
       myPhoto,
     }
   },
@@ -104,11 +76,6 @@ export default defineComponent({
   .section {
     @apply mb-12;
   }
-}
-
-.project-grid {
-  display: grid;
-  grid-gap: 2rem;
 }
 
 .home {

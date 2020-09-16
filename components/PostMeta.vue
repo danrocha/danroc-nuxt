@@ -1,11 +1,11 @@
 <template>
   <section class="font-mono text-right">
-    <datetime class="sm:hidden" :datetime="date">
+    <time class="sm:hidden" :datetime="date">
       {{ $dateFns.format(new Date(date), 'd.MM.yy') }}
-    </datetime>
-    <datetime :datetime="date" class="hidden sm:block">
+    </time>
+    <time :datetime="date" class="hidden sm:block">
       {{ $dateFns.format(new Date(date), 'd.MM') }}
-    </datetime>
+    </time>
   </section>
 </template>
 

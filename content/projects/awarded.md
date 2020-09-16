@@ -6,7 +6,7 @@ published: true
 tags: ['frontend', 'nuxt']
 canonical_url: true
 description: An app to help you keep track of award-winning movies and books.
-image: danrocdev/yellow-star-blue.png
+image: danrocdev/awarded/awarded-main-2.png
 order: 4
 intro: As I started to dive deep into modern web development, I developed Awarded as a testing ground for my newly-acquired skills.
 techstack:
@@ -25,9 +25,8 @@ techstack:
   ]
 url: https://awarded.to
 github: https://github.com/awarded-app
+publish: true
 ---
-
-As I started to dive deep into modern web development, I developed Awarded as a testing ground for my newly-acquired skills.
 
 ## Background
 

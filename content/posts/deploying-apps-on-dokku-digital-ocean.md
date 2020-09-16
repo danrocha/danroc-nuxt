@@ -148,7 +148,7 @@ You do not need to do this (you can always access your app using the droplet’s
 
 First, you need to modify your domain’s DNS settings. You’ll need to add an _A record_ named after your subdomain and pointing to the droplet’s IP address. On Netlify, it looks like this:
 
-![Screenshot of Netlify’s DNS records](https://res.cloudinary.com/danroc/image/upload/dpr_auto,f_auto/danrocdev/netlify-dns-screenshot.png)
+<base-img id="danrocdev/netlify-dns-screenshot.png"  alt="Screenshot of Netlify’s DNS records"></base-img>
 
 The instructions for your registrar might differ. Just search its docs for _add DNS subdomain_ and you should find answers quick.
 

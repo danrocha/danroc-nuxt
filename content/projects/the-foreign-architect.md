@@ -24,6 +24,5 @@ techstack:
   ]
 url: https://theforeignarchitect.com
 github: https://github.com/the-foreign-architect
+publish: false
 ---
-
-Text coming soon!

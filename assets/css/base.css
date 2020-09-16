@@ -6,15 +6,17 @@ html {
 a.link {
   @apply text-teal-200 underline;
 
-  /* 
-  box-shadow: inset 0 -0.1em 0 #dae1e7;
-  transition: box-shadow 0.2s ease-in-out; */
+  background: rgba(35, 78, 82, 0);
+  transition: background 0.1s ease-in-out;
 }
 
-/* .nuxt-content a:hover,
-a.link:hover {
-  box-shadow: inset 0 -1.2em 0 #dae1e7;
-} */
+a.link:hover,
+a.link:focus {
+  background: rgba(35, 78, 82, 1);
+}
+a.link:focus {
+  @apply border border-teal-500 outline-none;
+}
 
 .page-enter-active,
 .page-leave-active {
