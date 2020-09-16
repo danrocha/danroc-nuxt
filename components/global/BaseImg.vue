@@ -1,6 +1,6 @@
 <template>
-  <figure class="w-full">
-    <img :src="src" :alt="alt" :style="style" loading="lazy" class="w-full" />
+  <figure class="sm:text-teal-900 image pattern-dots-sm">
+    <img :src="src" :alt="alt" :style="style" loading="lazy" />
     <figcaption v-if="legend" class="text-xs italic -pt-2">
       {{ legend }}
     </figcaption>
@@ -50,3 +50,33 @@ export default defineComponent({
   },
 })
 </script>
+<style>
+@screen sm {
+  figure.image {
+    @apply mb-12;
+
+    width: 120%;
+    position: relative;
+  }
+
+  figure.image > img,
+  figure.image > figcaption {
+    transform: translateX(1rem) translateY(1rem);
+  }
+}
+@screen md {
+  figure.image {
+    width: 130%;
+  }
+}
+@screen lg {
+  figure.image {
+    width: 140%;
+  }
+}
+@screen xl {
+  figure.image {
+    width: 150%;
+  }
+}
+</style>
