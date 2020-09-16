@@ -48,6 +48,6 @@ export default defineComponent({
 <style scoped>
 .project-grid {
   display: grid;
-  grid-gap: 2rem;
+  grid-gap: 3rem;
 }
 </style>
