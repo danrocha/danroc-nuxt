@@ -31,6 +31,7 @@ describe('Home', () => {
         })
     })
   })
+  // PROJECTS
   describe('Projects section', () => {
     it('Contains the Projects section with a H2 title', () => {
       cy.get('[data-cy=section-projects]')
@@ -47,14 +48,54 @@ describe('Home', () => {
         .first()
         .as('project')
         .within(() => {
+          cy.get('img')
           cy.get('h3')
           cy.get('p')
-          cy.get('a').first().should('have.text', 'link')
-          cy.get('a').last().should('have.text', 'github')
         })
     })
+    it('Goes to a project page when clicking the project title', () => {
+      cy.get('[data-cy=project-list-item]').first().find('h3').find('a').click()
+      cy.url().should('include', '/projects/')
+    })
+    it('Goes to a project page when clicking the read link', () => {
+      cy.get('[data-cy=project-list-item]')
+        .first()
+        .find('[data-cy=read-link]')
+        .find('a')
+        .click()
+      cy.url().should('include', '/projects/')
+    })
+    it('Goes to a project page when clicking the image', () => {
+      cy.get('[data-cy=project-list-item]').first().find('img').click()
+      cy.url().should('include', '/projects/')
+    })
+    // PROJECT PAGE
+    describe('Project page', () => {
+      beforeEach(() => {
+        cy.get('[data-cy=project-list-item]').first().find('img').click()
+      })
+      it('Goes back to home when clicking the logo', () => {
+        cy.get('[data-cy=logo]').click()
+        cy.url().should('not.include', '/projects/')
+      })
+      it.only('Contains the github and link items', () => {
+        cy.get('[data-cy=links]')
+          .find('a')
+          .first()
+          .should(($link) => {
+            const text = $link.text()
+            expect(text).to.include('link')
+          })
+        cy.get('[data-cy=links]')
+          .find('a')
+          .last()
+          .should(($link) => {
+            const text = $link.text()
+            expect(text).to.include('github')
+          })
+      })
+    })
   })
-  // PROJECTS
 
   // ARTICLES
   describe('Articles section', () => {
@@ -74,7 +115,7 @@ describe('Home', () => {
         .first()
         .as('article')
         .within(() => {
-          cy.get('datetime')
+          cy.get('time')
           cy.get('p')
           cy.get('h3').invoke('text').as('title')
           cy.get('a').should('have.length', 3)
