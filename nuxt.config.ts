@@ -54,7 +54,7 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: ['~/plugins/vue-disqus', { src: '~/plugins/aos', ssr: false }],
+  plugins: ['~/plugins/vue-disqus', { src: '~/plugins/aos', mode: 'client' }],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components

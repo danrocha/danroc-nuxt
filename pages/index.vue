@@ -29,6 +29,7 @@
               height="200"
               alt="Avatar from Daniel da Rocha"
               class="inline-block"
+              data-aos="fade-left"
             />
           </div>
         </div>
