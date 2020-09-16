@@ -3,7 +3,7 @@
     class="flex items-center w-24 h-auto mb-8 ml-12 text-teal-900 pattern-dots-sm"
   >
     <a :name="name" />
-    <h2 class="-ml-12" data-aos="fade-left">{{ name }}</h2>
+    <h2 class="-ml-12">{{ name }}</h2>
   </div>
 </template>
 
