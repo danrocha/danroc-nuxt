@@ -34,7 +34,10 @@ export default defineComponent({
 
     const projects = ref([])
     const { fetch } = useFetch(async () => {
-      projects.value = await $content('projects').fetch()
+      projects.value = await $content('projects')
+        .where({ publish: true })
+        .sortBy('order')
+        .fetch()
     })
     fetch()
     return { projects }
