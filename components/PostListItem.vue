@@ -28,7 +28,7 @@
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
 
-interface Post {
+export interface Post {
   path: String
   description: String
   date: String
